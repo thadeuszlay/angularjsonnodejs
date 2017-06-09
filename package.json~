@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-  	 "heroku-prebuild": "nodejs ./bin/www",
     "start": "nodejs ./bin/www"
   },
   "dependencies": {
