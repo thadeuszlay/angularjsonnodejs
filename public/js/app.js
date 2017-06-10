@@ -322,8 +322,4 @@ angular.module('controllers', [])
       }
       return filtered;
     }
-  })
-  .controller('SubController', function ($scope) {
-    $scope.classVar = 'orange';
-    $scope.boolVal = false;
   });
