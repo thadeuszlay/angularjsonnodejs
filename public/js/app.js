@@ -4,35 +4,35 @@ angular.module('controllers', [])
   .controller('MainController', function ($scope, $filter) {
     $scope.shortcuts = {arr: [
       {
-        keyCombi: "alt+tab",
+        keyCombi: ["Alt", "Tab"],
         description: "Switch between programs",
-        os: "Linux Window",
-        age: 2
+        os: ["linux", "win"],
+        rate: 2
       }, {
-        keyCombi: "ctrl+alt+t",
+        keyCombi: ["Ctrl", "Alt", "T"],
         description: "Open terminal",
-        os: "Linux",
-        age: 22
+        os: ["linux"],
+        rate: 22
       }, {
-        keyCombi: "space",
+        keyCombi: ["Space"],
         description: "Scroll in a browser",
-        os: "Linux Window Mac",
-        age: 42
+        os: ["linux", "win", "mac"],
+        rate: 42
       }, {
-        keyCombi: "alt+F4",
-        description: "adsfkj slkfwj ef",
-        os: "Linux Window",
-        age: 2
+        keyCombi: ["Alt", "F4"],
+        description: "Close window",
+        os: ["linux", "win"],
+        rate: 2
       }, {
-        keyCombi: "asdf",
-        description: "asfw efwef wef we fw",
-        os: "Linux Window",
-        age: 253
+        keyCombi: ["Alt", "`"],
+        description: "Switch between windows from the same application.",
+        os: ["linux", "win"],
+        rate: 253
       }, {
         keyCombi: "basdf",
         description: "asf wef wef wefwgefwef",
-        os: "Linux Window",
-        age: 25
+        os: ["linux", "win"],
+        rate: 25
       }
     ]};
 
@@ -66,6 +66,18 @@ angular.module('controllers', [])
       }
       return filtered;
     };
+  })
+  .filter('selectOs', function() {
+    return function(data, selectedOs) {
+      var filtered = [];
+      for (var i = 0; i<data.length;i++) {
+        var value = data[i];
+        if(value.os.indexOf(selectedOs) >= 0) {
+          filtered.push(value);
+        }
+      }
+      return filtered;
+    }
   })
   .controller('SubController', function ($scope) {
     $scope.classVar = 'orange';

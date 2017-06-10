@@ -7,15 +7,35 @@
   <body>
     <div ng-controller="MainController">
       <nav class="{{active}}" ng-click="$event.preventDefault()">
-        <a class="linux home" href="#" ng-click="active='home'">Linux</a>
-        <a class="win contact" href="#" ng-click="active='contact'">Window</a>
-        <a class="mac about" href="#" ng-click="active='about'">Mac</a>
+        <a class="linux home" href="#" ng-click="active='linux'">
+          <img class="icon" src="img/icon/linux.png"/>
+          <span>Linux</span></sup>
+        </a>
+        <a class="win contact" href="#" ng-click="active='win'">
+          <img class="icon" src="img/icon/win.png"/>
+          <span>Window</span>
+        </a>
+        <a class="mac about" href="#" ng-click="active='mac'">
+          <img class="icon" src="img/icon/mac.png">
+          <span>Mac</span>
+        </a>
       </nav>
       <br/>
       <input ng-model="myfilter.description" type="text"/>
-      <div ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi'">
-        {{shortcut.keyCombi}} {{shortcut.description}} {{shortcut.age}}
-      </div>
+      <br/>
+      <table align="center" style="padding-top: 20px;margin: auto; width: 20%">
+        <tr ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi' | selectOs:active">
+          <td>
+            <span class="key" ng-repeat="key in shortcut.keyCombi">
+              <kbd>{{key}}</kbd> <span ng-if="!$last">+</span>
+            </span>
+          </td>
+          <td>
+            {{shortcut.description}}
+          </td>
+        </tr>
+      </table>
+
     </div>
     <script type="text/javascript" src="angularjs/angular.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
