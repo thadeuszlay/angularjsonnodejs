@@ -21,22 +21,25 @@
         </a>
       </nav>
       <br/>
-      <input ng-model="myfilter.description" type="text"/>
+      <input ng-model="myfilter.description" type="text" size="55" style="text-align: center" placeholder="Type in here what shortcut you need"/>
       <br/>
-      <table align="center" style="padding-top: 20px;margin: auto; width: 20%">
+      <table width="200" align="center">
         <tr ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi' | selectOs:active">
-          <td>
+          <td width="40%">
             <span class="key" ng-repeat="key in shortcut.keyCombi">
               <kbd>{{key}}</kbd> <span ng-if="!$last">+</span>
             </span>
           </td>
-          <td>
+          <td  width="80%">
             {{shortcut.description}}
           </td>
         </tr>
       </table>
 
     </div>
+    <footer>
+      Do you have any other shortcut to add or want to make an improvement suggestion? Drop a line here: <strong>thadeuszlay[at]gmail[dot]com</strong>
+    </footer>
     <script type="text/javascript" src="angularjs/angular.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>

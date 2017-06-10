@@ -116,3 +116,23 @@ kbd {
     -webkit-box-shadow: 1px 1px 1px #aaaaaa;
     box-shadow: 1px 1px 1px #aaaaaa;
 }
+
+table {
+  margin: auto;
+  margin-top: 20px;
+  width: 40%;
+  border-collapse: collapse;
+}
+td {
+  border: 1px solid #5867E3;
+  padding: 5px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin: auto;
+  width:95%;
+  background-color:white;
+}
