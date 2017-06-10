@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html ng-app>
-    <head>
-        <title>Integrating AngularJS with NodeJS</title>
-    </head>
-    <body>
-	<input ng-model="mydata"/>
-	{{mydata}}
-    	<script type="text/javascript" src="angularjs/angular.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-    </body>
+<html ng-app="app">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div ng-controller="MainController">
+      <input type="button" value="Linux"/>
+      <input type="button" value="Window"/>
+      <input type="button" value="Mac"/>
+      <br/>
+      <input ng-model="mydata.str">
+      {{mydata.str | charlimit}}
+      <input ng-model="myfilter.description" type="text"/>
+      {{myfilger.description | charlimit}}
+      <div ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi'">
+        {{shortcut.keyCombi}} {{shortcut.description}}
+      </div>
+    </div>
+    <script type="text/javascript" src="angularjs/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
 </html>
