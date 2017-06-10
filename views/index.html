@@ -2,19 +2,19 @@
 <html ng-app="app">
   <head>
     <title></title>
+    <link href="stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
     <div ng-controller="MainController">
-      <input type="button" value="Linux"/>
-      <input type="button" value="Window"/>
-      <input type="button" value="Mac"/>
+      <nav class="{{active}}" ng-click="$event.preventDefault()">
+        <a class="linux home" href="#" ng-click="active='home'">Linux</a>
+        <a class="win contact" href="#" ng-click="active='contact'">Window</a>
+        <a class="mac about" href="#" ng-click="active='about'">Mac</a>
+      </nav>
       <br/>
-      <input ng-model="mydata.str">
-      {{mydata.str | charlimit}}
       <input ng-model="myfilter.description" type="text"/>
-      {{myfilger.description | charlimit}}
       <div ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi'">
-        {{shortcut.keyCombi}} {{shortcut.description}}
+        {{shortcut.keyCombi}} {{shortcut.description}} {{shortcut.age}}
       </div>
     </div>
     <script type="text/javascript" src="angularjs/angular.js"></script>
