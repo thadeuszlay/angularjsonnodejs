@@ -140,7 +140,6 @@ footer {
   margin: auto;
   margin-top: 30px;
   width:95%;
-  background-color:white;
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
