@@ -6,7 +6,7 @@
     <link href="stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
-    <div class="ng-cloak" ng-controller="AccordionController">
+    <div ng-controller="AccordionController">
       	<div ng-controller="ShortcutController">
           <nav id="shortcutFragment">
             <a class="{{activeClass == 'linux' ? activeClass : ''}}" href="#shortcutFragment" ng-click="activateNav('linux')">
@@ -32,10 +32,10 @@
               <tr ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi' | selectOs:activeClass">
                 <td width="40%">
                   <span class="key" ng-repeat="key in shortcut.keyCombi">
-                    <kbd>{{key}}</kbd> <span ng-if="!$last">+</span>
+                    <kbd ng-cloak>{{key}}</kbd> <span ng-if="!$last" ng-cloak>+</span>
                   </span>
                 </td>
-                <td width="80%">
+                <td width="80%" ng-cloak>
                   {{shortcut.description}}
                 </td>
               </tr>
@@ -58,11 +58,11 @@
             <table width="200" align="center">
               <tr ng-repeat="data in git.commands | filter:myfilter | orderBy:'command'">
                 <td width="40%" style="background-color:black;" class="git" align="left">
-                  <div ng-repeat="cmd in data.command">
+                  <div ng-repeat="cmd in data.command" ng-cloak>
                     <span class="linuxCmd">$ </span>{{cmd}}
                   </div>
                 </td>
-                <td width="80%">
+                <td width="80%" ng-cloak>
                   {{data.description}}
                 </td>
               </tr>
@@ -85,11 +85,11 @@
             <table width="200" align="center">
               <tr ng-repeat="data in terminal.commands | filter:myfilter | orderBy:'command'">
                 <td width="40%" style="background-color:black;" class="git" align="left">
-                  <div ng-repeat="cmd in data.command">
+                  <div ng-repeat="cmd in data.command" ng-cloak>
                     <span class="linuxCmd">$ </span>{{cmd}}
                   </div>
                 </td>
-                <td  width="80%">
+                <td width="80%" ng-cloak>
                   {{data.description}}
                 </td>
               </tr>
