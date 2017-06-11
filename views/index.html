@@ -2,45 +2,112 @@
 <html ng-app="app">
   <head>
     <title></title>
+    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.css.map" rel="stylesheet"> -->
+    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet"> -->
+    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" rel="stylesheet"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
-    <div ng-controller="MainController">
-      <nav class="{{active}}" ng-click="$event.preventDefault()">
-        <a class="linux home" href="#" ng-click="active='linux'">
-          <img class="icon" src="img/icon/linux.png"/>
-          <span>Linux</span></sup>
-        </a>
-        <a class="win contact" href="#" ng-click="active='win'">
-          <img class="icon" src="img/icon/win.png"/>
-          <span>Window</span>
-        </a>
-        <a class="mac about" href="#" ng-click="active='mac'">
-          <img class="icon" src="img/icon/mac.png">
-          <span>Mac</span>
-        </a>
-      </nav>
-      <br/>
-      <input ng-model="myfilter.description" type="text" size="55" style="text-align: center" placeholder="Type in here what shortcut you need"/>
-      <br/>
-      <table width="200" align="center">
-        <tr ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi' | selectOs:active">
-          <td width="40%">
-            <span class="key" ng-repeat="key in shortcut.keyCombi">
-              <kbd>{{key}}</kbd> <span ng-if="!$last">+</span>
-            </span>
-          </td>
-          <td  width="80%">
-            {{shortcut.description}}
-          </td>
-        </tr>
-      </table>
-
+    <div ng-controller="AccordionController">
+      	<div ng-controller="ShortcutController">
+          <nav id="shortcutFragment">
+            <a class="{{activeClass == 'linux' ? activeClass : ''}}" href="#shortcutFragment" ng-click="activateNav('linux')">
+              <img class="icon" src="img/icon/linux.png"/>
+              <span>Linux</span>
+            </a>
+            <a class="{{activeClass == 'win'? activeClass : ''}}" href="#shortcutFragment" ng-click="activateNav('win')">
+              <img class="icon" src="img/icon/win.png"/>
+              <span>Window</span>
+            </a>
+            <a class="{{activeClass == 'mac'? activeClass : ''}}" href="#shortcutFragment" ng-click="activateNav('mac')">
+              <img class="icon" src="img/icon/mac.png">
+              <span>Mac</span>
+            </a>
+          </nav>
+          <br/>
+          <div ng-show="activeClass == 'win' || activeClass == 'linux' || activeClass == 'mac'">
+            <input ng-model="myfilter.description" type="text" size="55" style="text-align: center" placeholder="Type in here what shortcut you need"/>
+            <a class="clear" ng-click="myfilter.description = null">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <table width="200" align="center">
+              <tr ng-repeat="shortcut in shortcuts.arr | filter:myfilter | orderBy:'keyCombi' | selectOs:activeClass">
+                <td width="40%">
+                  <span class="key" ng-repeat="key in shortcut.keyCombi">
+                    <kbd>{{key}}</kbd> <span ng-if="!$last">+</span>
+                  </span>
+                </td>
+                <td width="80%">
+                  {{shortcut.description}}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div ng-controller="GitController">
+          <nav id="gitFragment">
+            <a class="{{activeClass == 'git' ? activeClass : ''}}" href="#gitFragment" ng-click="activateNav('git')">
+              <img class="icon" src="img/icon/git.png"/>
+              <span>Git</span>
+            </a>
+          </nav>
+          <br/>
+          <div ng-show="activeClass == 'git'">
+            <input ng-model="myfilter.description" type="text" size="55" style="text-align: center" placeholder="Type in here what command you need"/>
+            <a class="clear" ng-click="myfilter.description = null">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <table width="200" align="center">
+              <tr ng-repeat="data in git.commands | filter:myfilter | orderBy:'command'">
+                <td width="40%" style="background-color:black;" class="git" align="left">
+                  <div ng-repeat="cmd in data.command">
+                    <span class="linuxCmd">$ </span>{{cmd}}
+                  </div>
+                </td>
+                <td width="80%">
+                  {{data.description}}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div ng-controller="TerminalController">
+          <nav id="terminalFragment">
+            <a class="{{activeClass == 'terminal' ? activeClass : ''}}" href="#terminalFragment" ng-click="activateNav('terminal')">
+              <img class="icon" src="img/icon/Terminal.png"/>
+              <span>Terminal</span>
+            </a>
+          </nav>
+          <br/>
+          <div ng-show="activeClass == 'terminal'">
+            <input ng-model="myfilter.description" type="text" size="55" style="text-align: center" placeholder="Type in here what command you need"/>
+            <a class="clear" ng-click="myfilter.description = null">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <table width="200" align="center">
+              <tr ng-repeat="data in terminal.commands | filter:myfilter | orderBy:'command'">
+                <td width="40%" style="background-color:black;" class="git" align="left">
+                  <div ng-repeat="cmd in data.command">
+                    <span class="linuxCmd">$ </span>{{cmd}}
+                  </div>
+                </td>
+                <td  width="80%">
+                  {{data.description}}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
     </div>
     <footer>
       Do you have any other shortcut to add or want to make an improvement suggestion? Drop a line here: <strong>thadeuszlay[at]gmail[dot]com</strong>
     </footer>
-    <script type="text/javascript" src="angularjs/angular.js"></script>
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

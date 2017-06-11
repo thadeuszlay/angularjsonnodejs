@@ -1,7 +1,41 @@
-var app = angular.module('app', ['controllers']);
+var app = angular.module('app', ['controllers', 'ui.bootstrap']);
 
 angular.module('controllers', [])
-  .controller('MainController', function ($scope, $filter) {
+.controller('AccordionDemoCtrl', function ($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.groups = [
+    {
+      title: 'Dynamic Group Header - 1',
+      content: 'Dynamic Group Body - 1'
+    },
+    {
+      title: 'Dynamic Group Header - 2',
+      content: 'Dynamic Group Body - 2'
+    }
+  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
+
+  $scope.status = {
+    isCustomHeaderOpen: false,
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+})
+  .controller('ShortcutController', function ($scope, $filter) {
+    //git config --global alias.co checkout
+    $scope.selectOs = function() {
+      $scope.status.open = true;
+    }
+    $scope.clearSearch = function() {
+      $scope.myfilter.description = '';
+    }
     $scope.shortcuts = {arr: [
       {
         keyCombi: ["Alt", "Tab"],
@@ -322,4 +356,76 @@ angular.module('controllers', [])
       }
       return filtered;
     }
+  })
+  .controller('GitController', function ($scope, $filter) {
+    $scope.git = {commands: [
+      {
+        command: ["git config --global alias.co checkout"],
+        description: "Set an alias for git checkout. Instead of writing 'git checkout ...', you can now write 'git co ...'",
+        rate: 2
+      }, {
+        command: ["git reflog", "git reset HEAD@{index}"],
+        description: "Reset to a previous stage by first getting all the list of stages in your repository throughout all your branches. Then select one of the indexes in that list and set the HEAD to that stage.",
+        rate: 2
+      }, {
+        command: ["git branch some-new-branch-name", "git reset HEAD~ --hard", "git checkout some-new-branch-name"],
+        description: "Remove a commit from the master branch to a completely new branch.",
+        rate: 2
+      }, {
+        command: ["git commit --amend"],
+        description: "Change commit message. This only works if you haven't pushed yet. If you have pushed already, then there are also ways to change the commit message. But it's not recommended, since it produces more harm than good.",
+        rate: 2
+      }, {
+        command: ["git diff HEAD"],
+        description: "See my last changes before committing.",
+        rate: 2
+      }, {
+        command: ["git diff HEAD"],
+        description: "See my last changes before committing.",
+        rate: 2
+      }
+    ]};
+  })
+  .controller('TerminalController', function ($scope, $filter) {
+    $scope.terminal = {commands: [{
+        command: ["sudo -i"],
+        description: "Change to root, so you don't have to write 'sudo' all the time",
+        rate: 2
+      }, {
+        command: ["pwd"],
+        description: "Get current directory",
+        rate: 2
+      }, {
+        command: ["sudo rm -r to-be-removed-directory"],
+        description: "Remove a directory/folder",
+        rate: 2
+      }, {
+        command: ["sudo locate directory-you-are-looking-for"],
+        description: "Search for a directory/file",
+        rate: 2
+      }, {
+        command: ["gnome-screenshot"],
+        description: "Takes a screenshot",
+        rate: 2
+      }, {
+        command: ["sleep 5;gnome-screenshot"],
+        description: "Takes a screenshot with a delay. In this case a delay of 5 seconds",
+        rate: 2
+      }, {
+        command: ["sudo locate -e directory-you-are-looking-for | less"],
+        description: "Sometimes the name pattern you are looking for can appear in many places. In this case you want to limit the results. '-e' excludes recently deletes files 'less' only shows you the top results.",
+        rate: 2
+      }
+    ]};
+  })
+  .controller('CollapseDemoCtrl', function ($scope) {
+    $scope.isNavCollapsed = true;
+    $scope.isCollapsed = false;
+    $scope.isCollapsedHorizontal = false;
+  })
+  .controller('AccordionController', function ($scope) {
+    $scope.activeClass = null;
+    $scope.activateNav = function(navigation) {
+      $scope.activeClass = navigation;
+    };
   });

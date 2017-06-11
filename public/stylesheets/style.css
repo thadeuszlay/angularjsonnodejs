@@ -49,11 +49,10 @@ section, footer, header, aside, nav{
 
 
 nav{
-	display:inline-block;
-	margin:60px auto 45px;
+	margin: 60px auto 45px;
 	background-color:#55B460;
-	box-shadow:0 1px 1px #ccc;
-	border-radius:2px;
+	box-shadow:0px 10px 10px #ccc;
+	border-radius: 32px;
 }
 
 nav a{
@@ -79,13 +78,9 @@ nav a:last-child{
 	border-radius:0 2px 2px 0;
 }
 
-nav.linux .linux,
-nav.team.team,
-nav.win .win,
-nav.mac .mac{
+.linux, .mac, .win, .terminal, .git {
 	background-color:#5867E3;
 }
-
 nav img {
   height: 2em;
   margin: 2px;
@@ -110,17 +105,24 @@ p b{
 }
 
 kbd {
-    background-color: #e5e5e5;
+    background-color: #e5e5e5 !important;
+    color: black !important;
     border: solid 1px #aaaaaa;
-    -moz-box-shadow: 1px 1px 1px #aaaaaa;
-    -webkit-box-shadow: 1px 1px 1px #aaaaaa;
-    box-shadow: 1px 1px 1px #aaaaaa;
+    -moz-box-shadow: 2px 2px 1px #aaaaaa;
+    -webkit-box-shadow: 2px 1px 1px #aaaaaa;
+    box-shadow: 2px 2px 1px #aaaaaa;
 }
-
+.linuxCmd {
+  color: red;
+}
+.git {
+  color: white;
+  font-family: "Courier New";
+}
 table {
   margin: auto;
   margin-top: 20px;
-  width: 40%;
+  width: 60%;
   border-collapse: collapse;
 }
 td {
@@ -136,3 +138,5 @@ footer {
   width:95%;
   background-color:white;
 }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
