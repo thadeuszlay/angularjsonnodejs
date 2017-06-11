@@ -456,6 +456,10 @@ angular.module('controllers', [])
         command: ["chmod a+x your-shell-file.sh"],
         description: "Set execute permission for your-shell-file",
         rate: 2
+      }, {
+        command: ["> name-of-file-to-be-created"],
+        description: "If you want to create a file",
+        rate: 2
       }
     ]};
   })
