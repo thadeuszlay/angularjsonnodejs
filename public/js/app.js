@@ -380,8 +380,40 @@ angular.module('controllers', [])
         description: "See my last changes before committing.",
         rate: 2
       }, {
-        command: ["git diff HEAD"],
-        description: "See my last changes before committing.",
+        command: ["git log"],
+        description: "If you want to log out your past commits",
+        rate: 2
+      }, {
+        command: ["git log --pretty=oneline"],
+        description: "If you want to log out your past commits with every commit in one line",
+        rate: 2
+      }, {
+        command: ["git reset HEAD~ --soft", "git stash", "git checkout branch-you actually-wanted-to-commit-to", "git stash pop", "git add .", "git commit -m 'your commit message'"],
+        description: "If you have committed to the wrong branch you have to undo the last commit and then leave the changes available. Then move to the branch you actually wanted to commit to, apply the stashed changes there, and commit your changes there.",
+        rate: 2
+      }, {
+        command: ["git checkout branch-you actually-wanted-to-commit-to", "git cherry-pick master", "git checkout master", "git reset HEAD~ --hard"],
+        description: "If you have committed to the wrong branch you cherry pick your changes from the master branch to the branch you acutally wanted to commit to.",
+        rate: 2
+      }, {
+        command: ["git branch -d branch-to-be-deleted"],
+        description: "Delete a local branch",
+        rate: 2
+      }, {
+        command: ["git push origin --delete branch-to-be-deleted"],
+        description: "Delete a remote branch",
+        rate: 2
+      }, {
+        command: ["git remote -v"],
+        description: "List all currently configured remote repositories",
+        rate: 2
+      }, {
+        command: ["git tag your-tag-number the-commit-ID"],
+        description: "You can use tagging to mark a significant changeset, e.g. a release",
+        rate: 2
+      }, {
+        command: ["git grep 'the-term-you-are-searching-for'"],
+        description: "If you want to search for a certain term in your working directory",
         rate: 2
       }
     ]};
