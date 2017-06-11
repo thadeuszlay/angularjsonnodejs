@@ -105,7 +105,7 @@ p b{
 	font-size:18px;
 }
 .icon {
-  background-size="cover";
+  background-size=cover;
 }
 
 kbd {
@@ -138,7 +138,7 @@ footer {
   bottom: 0;
   text-align: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   width:95%;
   background-color:white;
 }

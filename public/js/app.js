@@ -29,7 +29,7 @@ angular.module('controllers', [])
   };
 })
   .controller('ShortcutController', function ($scope, $filter) {
-    //git config --global alias.co checkout
+
     $scope.selectOs = function() {
       $scope.status.open = true;
     }
@@ -54,7 +54,12 @@ angular.module('controllers', [])
         rate: 22
       }, {
         keyCombi: ["Space"],
-        description: "Scroll in a browser",
+        description: "Scroll down in a browser",
+        os: ["linux", "win", "mac"],
+        rate: 42
+      }, {
+        keyCombi: ["Shift", "Space"],
+        description: "Scroll up in a browser",
         os: ["linux", "win", "mac"],
         rate: 42
       }, {
@@ -138,12 +143,12 @@ angular.module('controllers', [])
         os: ["linux", "win"],
         rate: 25
       }, {
-        keyCombi: ["Win", "D"],
+        keyCombi: ["Super", "D"],
         description: "Show Desktop",
         os: ["win"],
         rate: 25
       }, {
-        keyCombi: ["Win", "M"],
+        keyCombi: ["Super", "M"],
         description: "Minimize all windows",
         os: ["win"],
         rate: 25
@@ -153,7 +158,7 @@ angular.module('controllers', [])
         os: ["linux", "win"],
         rate: 25
       }, {
-        keyCombi: ["Win", "U"],
+        keyCombi: ["Super", "U"],
         description: "Shut down window",
         os: ["win"],
         rate: 25
@@ -173,7 +178,7 @@ angular.module('controllers', [])
         os: ["linux", "mac", "win"],
         rate: 25
       }, {
-        keyCombi: ["Win", "E"],
+        keyCombi: ["Super", "E"],
         description: "Open an Windows Explorer reference",
         os: ["win"],
         rate: 25
@@ -183,7 +188,7 @@ angular.module('controllers', [])
         os: ["win"],
         rate: 25
       }, {
-        keyCombi: ["Win", "Pause"],
+        keyCombi: ["Super", "Pause"],
         description: "Open System Information",
         os: ["win"],
         rate: 25
@@ -447,6 +452,10 @@ angular.module('controllers', [])
         command: ["sudo locate -e directory-you-are-looking-for | less"],
         description: "Sometimes the name pattern you are looking for can appear in many places. In this case you want to limit the results. '-e' excludes recently deletes files 'less' only shows you the top results.",
         rate: 2
+      }, {
+        command: ["chmod a+x your-shell-file.sh"],
+        description: "Set execute permission for your-shell-file",
+        rate: 2
       }
     ]};
   })
@@ -460,4 +469,9 @@ angular.module('controllers', [])
     $scope.activateNav = function(navigation) {
       $scope.activeClass = navigation;
     };
+
+    var now = new Date();
+    var currentYear = now.getFullYear();
+    var textNode = document.createTextNode(currentYear);
+    document.getElementById("copyrightYear").appendChild(textNode);
   });
