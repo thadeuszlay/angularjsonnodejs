@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
-    <title></title>
-    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"> -->
-    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.css.map" rel="stylesheet"> -->
-    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css" rel="stylesheet"> -->
-    <!-- <link href="lib/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" rel="stylesheet"> -->
+    <title>Favorite Shortcuts & Commands</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
-    <div ng-controller="AccordionController">
+    <div ng-cloak ng-controller="AccordionController">
       	<div ng-controller="ShortcutController">
           <nav id="shortcutFragment">
             <a class="{{activeClass == 'linux' ? activeClass : ''}}" href="#shortcutFragment" ng-click="activateNav('linux')">
@@ -104,7 +100,7 @@
     <footer>
       <pre>
         Do you have any other shortcut to add or want to make an improvement suggestion? Drop a line here: <strong>thadeuszlay[at]gmail[dot]com</strong>
-        The project is available on my <a href="https://github.com/thadeuszlay/angularjsonnodejs">GitHub repository</a>.&copy;2017        
+        The project is also available on my <a href="https://github.com/thadeuszlay/angularjsonnodejs">Git repository</a>.&copy;2017
       </pre>
 
     </footer>
