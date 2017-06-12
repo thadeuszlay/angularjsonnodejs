@@ -1,6 +1,5 @@
 var app = angular.module('app', ['controllers', 'ui.bootstrap']);
-//https://stackoverflow.com/questions/3184555/cleaning-up-old-remote-git-branches
-//https://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
+
 angular.module('controllers', [])
   .controller('ShortcutController', function ($scope, $filter) {
     $scope.selectOs = function() {
@@ -347,12 +346,20 @@ angular.module('controllers', [])
   .controller('GitController', function ($scope, $filter) {
     $scope.git = {commands: [
       {
-        command: ["git config --global alias.co checkout"],
-        description: "Set an alias for git checkout. Instead of writing 'git checkout ...', you can now write 'git co ...'",
+        command: ["git config --global alias.your-custom-git-alias a-git-command"],
+        description: "Set an alias for a git command, e.g. you can set 'git config --config alias.co checkout' and now you can write 'git co ...', instead of writing 'git checkout ...'",
         rate: 2
       }, {
         command: ["git reflog", "git reset HEAD@{index}"],
         description: "Reset to a previous stage by first getting all the list of stages in your repository throughout all your branches. Then select one of the indexes in that list and set the HEAD to that stage.",
+        rate: 2
+      }, {
+        command: ["git config --list"],
+        description: "Returns your git config file",
+        rate: 2
+      }, {
+        command: ["gedit ~/.gitconfig"],
+        description: "Edit your git config file",
         rate: 2
       }, {
         command: ["git branch some-new-branch-name", "git reset HEAD~ --hard", "git checkout some-new-branch-name"],
@@ -409,6 +416,14 @@ angular.module('controllers', [])
     $scope.terminal = {commands: [{
         command: ["sudo -i"],
         description: "Change to root, so you don't have to write 'sudo' all the time",
+        rate: 2
+      }, {
+        command: ["byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif"],
+        description: "Record a screencast at a certain position, i.e. x=200 and y=300, and dimension, i.e. width=700 and height=400, on your screen and then saves it in your home directory as a GIF-file with the name 'out'. If you haven't installed 'byzanz' yet, you can do so with 'sudo apt-get install byzanz'",
+        rate: 2
+      }, {
+        command: ["xwininfo"],
+        description: "Get window properties. After executing you can click on anywere on the screen to This is helpful for example when setting the position and dimension for a screencast.",
         rate: 2
       }, {
         command: ["pwd"],
