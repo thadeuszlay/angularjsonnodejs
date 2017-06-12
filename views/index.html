@@ -24,7 +24,7 @@
           </nav>
           <br/>
           <div ng-show="activeClass == 'win' || activeClass == 'linux' || activeClass == 'mac'" ng-cloak>
-            <input ng-model="myfilter.description" type="text" size="56" style="text-align: center" placeholder="Type in here what shortcut you need"/>
+            <input ng-model="myfilter.description" type="text" size="50" style="text-align: center" placeholder="Type in here what shortcut you need"/>
             <a class="clear" ng-click="myfilter.description = null">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
@@ -51,7 +51,7 @@
           </nav>
           <br/>
           <div ng-show="activeClass == 'git'" ng-cloak>
-            <input ng-model="myfilter.description" type="text" size="56" style="text-align: center" placeholder="Type in here what command you need"/>
+            <input ng-model="myfilter.description" type="text" size="50" style="text-align: center" placeholder="Type in here what command you need"/>
             <a class="clear" ng-click="myfilter.description = null">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
@@ -78,7 +78,7 @@
           </nav>
           <br/>
           <div ng-show="activeClass == 'terminal'" ng-cloak>
-            <input ng-model="myfilter.description" type="text" size="56" style="text-align: center" placeholder="Type in here what command you need"/>
+            <input ng-model="myfilter.description" type="text" size="50" style="text-align: center" placeholder="Type in here what command you need"/>
             <a class="clear" ng-click="myfilter.description = null">
               <span class="glyphicon glyphicon-remove"></span>
             </a>
@@ -98,9 +98,9 @@
         </div>
     </div>
     <footer ng-cloak>
-        Do you have any other shortcut to add or want to make an improvement suggestion?
+        <i>Do you have any other shortcut to add or want to make an improvement suggestion?
         Drop a line here: <strong>thadeuszlay[at]gmail[dot]com</strong>
-        The project is also available for free on my <a href="https://github.com/thadeuszlay/angularjsonnodejs" target="_blank">Git repository</a>.&copy; <i id="copyrightYear"></i> thadeuszlay
+        The project is also available for free on my <a href="https://github.com/thadeuszlay/angularjsonnodejs" target="_blank">Git repository</a>.&copy; <span id="copyrightYear"></span> thadeuszlay</i>
     </footer>
     <script type="text/javascript" src="lib/angular.js"></script>
     <script type="text/javascript" src="lib/jquery-3.2.1.js"></script>

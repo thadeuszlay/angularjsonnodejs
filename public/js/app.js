@@ -1,43 +1,25 @@
 var app = angular.module('app', ['controllers', 'ui.bootstrap']);
-
+//https://stackoverflow.com/questions/3184555/cleaning-up-old-remote-git-branches
+//https://askubuntu.com/questions/107726/how-to-create-animated-gif-images-of-a-screencast
 angular.module('controllers', [])
-.controller('AccordionDemoCtrl', function ($scope) {
-  $scope.oneAtATime = true;
-
-  $scope.groups = [
-    {
-      title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
-    },
-    {
-      title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
-    }
-  ];
-
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
-  };
-
-  $scope.status = {
-    isCustomHeaderOpen: false,
-    isFirstOpen: true,
-    isFirstDisabled: false
-  };
-})
   .controller('ShortcutController', function ($scope, $filter) {
-
     $scope.selectOs = function() {
       $scope.status.open = true;
-    }
+    };
     $scope.clearSearch = function() {
       $scope.myfilter.description = '';
-    }
-    $scope.shortcuts = {arr: [
-      {
+    };
+    $scope.shortcuts = {arr: [{
+        keyCombi: ["Cmd", "Shift", "T"],
+        description: "If you want to reopen a tab in your browser that you just closed",
+        os: ["mac"],
+        rate: 2
+      }, {
+        keyCombi: ["Ctrl", "Shift", "T"],
+        description: "If you want to reopen a tab in your browser that you just closed",
+        os: ["mac"],
+        rate: 2
+      }, {
         keyCombi: ["Alt", "Tab"],
         description: "Switch between programs",
         os: ["linux", "win"],
@@ -119,12 +101,12 @@ angular.module('controllers', [])
         rate: 25
       }, {
         keyCombi: ["Alt", "PrtSc"],
-        description: "Take a screenshot of the active window",
+        description: "Takes a screenshot of the active window",
         os: ["linux"],
         rate: 25
       }, {
         keyCombi: ["Shift", "PrtSc"],
-        description: "Take a screenshot of an area of the screen. The pointer changes to a crosshair. Click and drag to select an area",
+        description: "Takes a screenshot of an area of the screen. The pointer changes to a crosshair. Click and drag to select an area",
         os: ["linux"],
         rate: 25
       }, {
@@ -360,7 +342,7 @@ angular.module('controllers', [])
         }
       }
       return filtered;
-    }
+    };
   })
   .controller('GitController', function ($scope, $filter) {
     $scope.git = {commands: [

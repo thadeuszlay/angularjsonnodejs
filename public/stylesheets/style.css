@@ -1,5 +1,5 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+  /*display: none !important;*/
 }
 
 body {
@@ -143,6 +143,7 @@ footer {
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 input {
   font-size:24px;
 }
