@@ -125,11 +125,12 @@ footer {
   width:95%;
 }
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 input {
   font-size:24px;
 }
 .glyphicon-remove {
   color: red;
+  cursor: pointer;  
 }

@@ -431,7 +431,7 @@ angular.module('controllers', [])
         rate: 2
       }, {
         command: ["xwininfo"],
-        description: "Get window properties. After executing you can click on anywere on the screen to This is helpful for example when setting the position and dimension for a screencast.",
+        description: "Get window properties. After executing the curusor will turn into a crosshair that you can click on anywere on yor screen to select a position. You will then get properties of the window you clicked. This is helpful for example when setting the position and dimension for a screencast.",
         rate: 2
       }, {
         command: ["pwd"],
