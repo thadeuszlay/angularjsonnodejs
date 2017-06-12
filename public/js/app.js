@@ -16,7 +16,7 @@ angular.module('controllers', [])
       }, {
         keyCombi: ["Ctrl", "Shift", "T"],
         description: "If you want to reopen a tab in your browser that you just closed",
-        os: ["mac"],
+        os: ["linux", "win"],
         rate: 2
       }, {
         keyCombi: ["Alt", "Tab"],
