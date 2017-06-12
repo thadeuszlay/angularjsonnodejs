@@ -413,6 +413,10 @@ angular.module('controllers', [])
         command: ["git a-git-command --dry-run"],
         description: "Put '--dry-run' at the end of your git command to see the result of running that git command without actually running it.",
         rate: 2
+      }, {
+        command: ["git show"],
+        description: "shows the log message and textual diff",
+        rate: 2
       }
     ]};
   })
@@ -460,6 +464,10 @@ angular.module('controllers', [])
       }, {
         command: ["> name-of-file-to-be-created"],
         description: "If you want to create a file",
+        rate: 2
+      }, {
+        command: ["top"],
+        description: "Show running processes",
         rate: 2
       }
     ]};
