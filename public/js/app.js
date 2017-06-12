@@ -409,6 +409,10 @@ angular.module('controllers', [])
         command: ["git grep 'the-term-you-are-searching-for'"],
         description: "If you want to search for a certain term in your working directory",
         rate: 2
+      }, {
+        command: ["git a-git-command --dry-run"],
+        description: "Put '--dry-run' at the end of your git command to see the result of running that git command without actually running it.",
+        rate: 2
       }
     ]};
   })
