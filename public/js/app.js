@@ -126,7 +126,7 @@ angular.module('controllers', [])
         rate: 25
       }, {
         keyCombi: ["F2"],
-        description: "Rename a file",
+        description: "Select a file or folder. Then press 'F2' in order to rename that file/folder",
         os: ["linux", "win"],
         rate: 25
       }, {
