@@ -2,16 +2,22 @@ var app = angular.module('app', ['controllers', 'ui.bootstrap']);
 
 angular.module('controllers', [])
   .controller('ShortcutController', function ($scope, $filter) {
-    $scope.selectOs = function() {
+    $scope.selectOs = function () {
       $scope.status.open = true;
     };
-    $scope.clearSearch = function() {
+    $scope.clearSearch = function () {
       $scope.myfilter.description = '';
     };
-    $scope.shortcuts = {arr: [{
+    $scope.shortcuts = {
+      arr: [{
         keyCombi: ["Cmd", "Shift", "T"],
         description: "If you want to reopen a tab in your browser that you just closed",
         os: ["mac"],
+        rate: 2
+      }, {
+        keyCombi: ["Alt", "Left"],
+        description: "Go back to the previous page in your browser. With 'Alt + Left/Right' you can navigate through the pages you have visited",
+        os: ["win", "linux", "mac"],
         rate: 2
       }, {
         keyCombi: ["Ctrl", "Shift", "T"],
@@ -328,15 +334,15 @@ angular.module('controllers', [])
         description: "Log out of your user account with one step",
         os: ["mac"],
         rate: 25
-      }
-    ]};
+      }]
+    };
   })
-  .filter('selectOs', function() {
-    return function(data, selectedOs) {
+  .filter('selectOs', function () {
+    return function (data, selectedOs) {
       var filtered = [];
-      for (var i = 0; i<data.length;i++) {
+      for (var i = 0; i < data.length; i++) {
         var value = data[i];
-        if(value.os.indexOf(selectedOs) >= 0) {
+        if (value.os.indexOf(selectedOs) >= 0) {
           filtered.push(value);
         }
       }
@@ -344,9 +350,11 @@ angular.module('controllers', [])
     };
   })
   .controller('GitController', function ($scope, $filter) {
-    $scope.git = {commands: [
-      {
-        command: ["git config --global alias.your-custom-git-alias a-git-command"],
+    $scope.git = {
+      commands: [{
+        command: [
+          "git config --global alias.your-custom-git-alias a-git-command"
+        ],
         description: "Set an alias for a git command, e.g. you can set 'git config --config alias.co checkout' and now you can write 'git co ...', instead of writing 'git checkout ...'",
         rate: 2
       }, {
@@ -362,7 +370,10 @@ angular.module('controllers', [])
         description: "Edit your git config file",
         rate: 2
       }, {
-        command: ["git branch some-new-branch-name", "git reset HEAD~ --hard", "git checkout some-new-branch-name"],
+        command: ["git branch some-new-branch-name",
+          "git reset HEAD~ --hard",
+          "git checkout some-new-branch-name"
+        ],
         description: "Remove a commit from the master branch to a completely new branch.",
         rate: 2
       }, {
@@ -382,11 +393,19 @@ angular.module('controllers', [])
         description: "If you want to log out your past commits with every commit in one line",
         rate: 2
       }, {
-        command: ["git reset HEAD~ --soft", "git stash", "git checkout branch-you actually-wanted-to-commit-to", "git stash pop", "git add .", "git commit -m 'your commit message'"],
+        command: ["git reset HEAD~ --soft", "git stash",
+          "git checkout branch-you actually-wanted-to-commit-to",
+          "git stash pop", "git add .",
+          "git commit -m 'your commit message'"
+        ],
         description: "If you have committed to the wrong branch you have to undo the last commit and then leave the changes available. Then move to the branch you actually wanted to commit to, apply the stashed changes there, and commit your changes there.",
         rate: 2
       }, {
-        command: ["git checkout branch-you actually-wanted-to-commit-to", "git cherry-pick master", "git checkout master", "git reset HEAD~ --hard"],
+        command: [
+          "git checkout branch-you actually-wanted-to-commit-to",
+          "git cherry-pick master", "git checkout master",
+          "git reset HEAD~ --hard"
+        ],
         description: "If you have committed to the wrong branch you cherry pick your changes from the master branch to the branch you acutally wanted to commit to.",
         rate: 2
       }, {
@@ -417,16 +436,19 @@ angular.module('controllers', [])
         command: ["git show"],
         description: "shows the log message and textual diff",
         rate: 2
-      }
-    ]};
+      }]
+    };
   })
   .controller('TerminalController', function ($scope, $filter) {
-    $scope.terminal = {commands: [{
+    $scope.terminal = {
+      commands: [{
         command: ["sudo -i"],
         description: "Change to root, so you don't have to write 'sudo' all the time",
         rate: 2
       }, {
-        command: ["byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif"],
+        command: [
+          "byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif"
+        ],
         description: "Record a screencast at a certain position, i.e. x=200 and y=300, and dimension, i.e. width=700 and height=400, on your screen and then saves it in your home directory as a GIF-file with the name 'out'. If you haven't installed 'byzanz' yet, you can do so with 'sudo apt-get install byzanz'",
         rate: 2
       }, {
@@ -469,8 +491,8 @@ angular.module('controllers', [])
         command: ["top"],
         description: "Show running processes",
         rate: 2
-      }
-    ]};
+      }]
+    };
   })
   .controller('CollapseDemoCtrl', function ($scope) {
     $scope.isNavCollapsed = true;
@@ -479,12 +501,13 @@ angular.module('controllers', [])
   })
   .controller('AccordionController', function ($scope) {
     $scope.activeClass = null;
-    $scope.activateNav = function(navigation) {
+    $scope.activateNav = function (navigation) {
       $scope.activeClass = navigation;
     };
 
     var now = new Date();
     var currentYear = now.getFullYear();
     var textNode = document.createTextNode(currentYear);
-    document.getElementById("copyrightYear").appendChild(textNode);
+    document.getElementById("copyrightYear")
+      .appendChild(textNode);
   });
