@@ -17,6 +17,11 @@ app.value('getShortcuts', function() {
       os: ["mac"],
       rate: 2
     }, {
+        keyCombi: ["Alt", "Left"],
+        description: "Go back to the previous page in your browser. With 'Alt + Left/Right' you can navigate through the pages you have visited",
+        os: ["win", "linux", "mac"],
+        rate: 2
+      }, {
       keyCombi: ["Ctrl", "Shift", "T"],
       description: "If you want to reopen a tab in your browser that you just closed",
       os: ["linux", "win"],
@@ -123,7 +128,7 @@ app.value('getShortcuts', function() {
       rate: 25
     }, {
       keyCombi: ["F2"],
-      description: "Rename a file",
+      description: "Select a file or folder. Then press 'F2' in order to rename that file/folder",
       os: ["linux", "win"],
       rate: 25
     }, {
