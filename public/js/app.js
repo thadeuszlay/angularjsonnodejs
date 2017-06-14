@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 
-app.controller('ShortcutController', function ($scope, $filter) {
+app.controller('ShortcutController', function ($scope, $filter, getShortcuts) {
   $scope.selectOs = function() {
     $scope.status.open = true;
   };
