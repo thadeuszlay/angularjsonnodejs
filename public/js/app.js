@@ -21,7 +21,7 @@ app.value('getShortcuts', function() {
         description: "Go back to the previous page in your browser. With 'Alt + Left/Right' you can navigate through the pages you have visited",
         os: ["win", "linux", "mac"],
         rate: 2
-      }, {
+    }, {
       keyCombi: ["Ctrl", "Shift", "T"],
       description: "If you want to reopen a tab in your browser that you just closed",
       os: ["linux", "win"],
@@ -439,6 +439,14 @@ app.value('getterminalData', function() {
       command: ["sudo -i"],
       description: "Change to root, so you don't have to write 'sudo' all the time",
       rate: 2
+    }, {
+        command: [" "],
+        description: "Make a space ' ' in front of the first command and that command won't appear in the history resp. list of last commands (press key up) anymore",
+        rate: 2
+    }, {
+        command: ["history"],
+        description: "Shows the history resp. a log of last used commands.",
+        rate: 2
     }, {
       command: ["byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif"],
       description: "Record a screencast at a certain position, i.e. x=200 and y=300, and dimension, i.e. width=700 and height=400, on your screen and then saves it in your home directory as a GIF-file with the name 'out'. If you haven't installed 'byzanz' yet, you can do so with 'sudo apt-get install byzanz'",
