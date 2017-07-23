@@ -561,7 +561,7 @@ app.value('getVimData', function() {
       rate: 2
     }, {
       command: ["%"],
-      description: "jump to end of corresponding bloack",
+      description: "jump to end of corresponding block",
       rate: 2
     }, {
       command: ["w"],
@@ -578,6 +578,18 @@ app.value('getVimData', function() {
     }, {
       command: [": + $"],
       description: "go to last line in a file",
+      rate: 2
+    }, {
+      command: ["/ + [word you are looking for]"],
+      description: "find a word. In order to jump to the next results, press 'n'",
+      rate: 2
+    }, {
+      command: ["? + [word you are looking for]"],
+      description: "find a word. In order to jump to the next results, press 'n'",
+      rate: 2
+    }, {
+      command: ["*"],
+      description: "find a word by moving your cursor to the word you are looking for and then press '*'. In order to jump to the next results, press 'n'",
       rate: 2
     }]
   };
