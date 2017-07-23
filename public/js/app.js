@@ -516,15 +516,15 @@ app.value('getVimData', function() {
       description: "move right",
       rate: 2
     }, {
-      command: ["Shift + v"],
+      command: ["V"],
       description: "Change to visual mode",
       rate: 2
     }, {
-      command: ["g + U + l"],
+      command: ["gUl"],
       description: "change one char to uppercase",
       rate: 2
     }, {
-      command: ["g + u + l"],
+      command: ["gul"],
       description: "change one char to lowercase",
       rate: 2
     }, {
@@ -544,7 +544,7 @@ app.value('getVimData', function() {
       description: "insert an empty line above cursor",
       rate: 2
     }, {
-      command: [": + w"],
+      command: [":w"],
       description: "save file",
       rate: 2
     }, {
@@ -552,7 +552,7 @@ app.value('getVimData', function() {
       description: "paste in",
       rate: 2
     }, {
-      command: [": + q"],
+      command: [":q"],
       description: "quit",
       rate: 2
     }, {
@@ -568,28 +568,36 @@ app.value('getVimData', function() {
       description: "jump to next word",
       rate: 2
     }, {
-      command: [": + w + q"],
+      command: [":wq"],
       description: "save and quit",
       rate: 2
     }, {
-      command: [": + 0"],
+      command: [":0"],
       description: "go to first line in a file",
       rate: 2
     }, {
-      command: [": + $"],
+      command: [":$"],
       description: "go to last line in a file",
       rate: 2
     }, {
-      command: ["/ + [word you are looking for]"],
+      command: ["/[word you are looking for]"],
       description: "find a word. In order to jump to the next results, press 'n'",
       rate: 2
     }, {
-      command: ["? + [word you are looking for]"],
+      command: ["?[word you are looking for]"],
       description: "find a word. In order to jump to the next results, press 'n'",
       rate: 2
     }, {
       command: ["*"],
       description: "find a word by moving your cursor to the word you are looking for and then press '*'. In order to jump to the next results, press 'n'",
+      rate: 2
+    }, {
+      command: ["cid"],
+      description: "delete word",
+      rate: 2
+    }, {
+      command: [":q!"],
+      description: "quit without saving",
       rate: 2
     }]
   };
