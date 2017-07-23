@@ -494,6 +494,95 @@ app.value('getterminalData', function() {
     }
   ]};
 });
+
+app.controller('VimController', function ($scope, $filter, getVimData) {
+  $scope.vim = getVimData();
+});
+app.value('getVimData', function() {
+  return {commands: [{
+      command: ["j"],
+      description: "move down",
+      rate: 2
+    }, {
+      command: ["h"],
+      description: "move left",
+      rate: 2
+    }, {
+      command: ["k"],
+      description: "move up",
+      rate: 2
+    }, {
+      command: ["l"],
+      description: "move right",
+      rate: 2
+    }, {
+      command: ["Shift + v"],
+      description: "Change to visual mode",
+      rate: 2
+    }, {
+      command: ["g + U + l"],
+      description: "change one char to uppercase",
+      rate: 2
+    }, {
+      command: ["g + u + l"],
+      description: "change one char to lowercase",
+      rate: 2
+    }, {
+      command: ["i"],
+      description: "go to insert/edit mode",
+      rate: 2
+    }, {
+      command: ["y"],
+      description: "copy line",
+      rate: 2
+    }, {
+      command: ["o"],
+      description: "insert an empty line below cursor",
+      rate: 2
+    }, {
+      command: ["O"],
+      description: "insert an empty line above cursor",
+      rate: 2
+    }, {
+      command: [": + w"],
+      description: "save file",
+      rate: 2
+    }, {
+      command: ["p"],
+      description: "paste in",
+      rate: 2
+    }, {
+      command: [": + q"],
+      description: "quit",
+      rate: 2
+    }, {
+      command: ["u"],
+      description: "undo",
+      rate: 2
+    }, {
+      command: ["%"],
+      description: "jump to end of corresponding bloack",
+      rate: 2
+    }, {
+      command: ["w"],
+      description: "jump to next word",
+      rate: 2
+    }, {
+      command: [": + w + q"],
+      description: "save and quit",
+      rate: 2
+    }, {
+      command: [": + 0"],
+      description: "go to first line in a file",
+      rate: 2
+    }, {
+      command: [": + $"],
+      description: "go to last line in a file",
+      rate: 2
+    }]
+  };
+});
+
 app.controller('CollapseDemoCtrl', function ($scope) {
   $scope.isNavCollapsed = true;
   $scope.isCollapsed = false;

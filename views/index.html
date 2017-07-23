@@ -6,6 +6,7 @@
     <link href="stylesheets/style.css" rel="stylesheet">
   </head>
   <body>
+    Last updated: <b>2017-07-23</b>
     <div ng-controller="AccordionController">
       	<div ng-controller="ShortcutController">
           <nav id="shortcutFragment">
@@ -87,6 +88,33 @@
                 <td width="40%" style="background-color:black;" class="git" align="left">
                   <div ng-repeat="cmd in data.command" ng-cloak>
                     <span class="linuxCmd">$ </span>{{cmd}}
+                  </div>
+                </td>
+                <td width="80%" ng-cloak>
+                  {{data.description}}
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div ng-controller="VimController">
+          <nav id="vimFragment">
+            <a class="{{activeClass == 'vim' ? activeClass : ''}}" href="#vimFragment" ng-click="activateNav('vim')">
+              <img class="icon" src="img/icon/vim.png"/>
+              <span>Vim</span>
+            </a>
+          </nav>
+          <br/>
+          <div ng-show="activeClass == 'vim'" ng-cloak>
+            <input ng-model="myfilter.description" type="text" size="40" style="text-align: center" placeholder="Type in here what command you need"/>
+            <a class="clear" ng-click="myfilter.description = null">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <table width="200" align="center">
+              <tr ng-repeat="data in vim.commands | filter:myfilter | orderBy:'command'">
+                <td width="40%" style="background-color:black;" class="git" align="left">
+                  <div ng-repeat="cmd in data.command" ng-cloak>
+                    {{cmd}}
                   </div>
                 </td>
                 <td width="80%" ng-cloak>
